@@ -62,26 +62,27 @@ export default function FormModel({ id, firstName, lastName, email, department, 
           </h2>
 
           <form className="my-8" onSubmit={handleSubmit}>
+            
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
               <div className='d-flex mb-4 '>
                 <Label htmlFor="firstname">First name</Label>
-                <Input id="firstname" placeholder="Tyler" type="text" name='firstName' value={formData.firstName} onChange={handleChange} />
+                <Input id="firstname" placeholder="Tyler" type="text" name='firstName' value={formData.firstName} onChange={handleChange} required/>
               </div>
 
               <div className='d-flex mb-4 '>
                 <Label htmlFor="lastname">Last name</Label>
-                <Input id="lastname" placeholder="Durden" type="text" name='lastName' value={formData.lastName} onChange={handleChange} />
+                <Input id="lastname" placeholder="Durden" type="text" name='lastName' value={formData.lastName} onChange={handleChange} required/>
               </div>
             </div>
 
             <div className='d-flex mb-4'>
               <Label htmlFor="email">Email Address</Label>
-              <Input id="email" placeholder="projectmayhem@fc.com" type="email" name='email' value={formData.email} onChange={handleChange} />
+              <Input id="email" placeholder="projectmayhem@fc.com" type="email" name='email' value={formData.email} onChange={handleChange} required/>
             </div>
 
             <div className='d-flex mb-4 '>
               <Label htmlFor="department">Department</Label>
-              <Input id="department" placeholder="Department..." type="text" name='department' value={formData.department} onChange={handleChange} />
+              <Input id="department" placeholder="Department..." type="text" name='department' value={formData.department} onChange={handleChange} required/>
             </div>
 
             <button

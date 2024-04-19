@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import FormModel from './FormModel'
+import { patchUser } from "@/ApiCall/api";
 export function ThreeDCard({ id, firstName, lastName, email, department, removeElem, handleAdd }) {
 
   const [formData, setFormData] = useState({
@@ -12,8 +13,17 @@ export function ThreeDCard({ id, firstName, lastName, email, department, removeE
     department: department,
   })
 
-  const handleUpdate = (updatedFormData) => {
-    setFormData(updatedFormData);
+  const handleUpdate = async (updatedFormData) => {
+    try {
+      let response = await patchUser(updatedFormData, id)
+
+      if (response.status == '200') {
+        setFormData(updatedFormData);
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleDelete = () => {

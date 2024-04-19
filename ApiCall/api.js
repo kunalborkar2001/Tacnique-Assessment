@@ -46,9 +46,9 @@ let deleteUser = async (id) => {
 }
 
 
-let patchUser = async (formData) => {
+let patchUser = async (formData, id) => {
     try {
-        let response = await axios.patch(`${BASE_URL}/users/`, formData, {
+        let response = await axios.patch(`${BASE_URL}/users/${id}`, formData, {
             headers: {
                 'Content-Type': 'application/json'
             }

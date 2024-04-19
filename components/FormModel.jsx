@@ -5,25 +5,27 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-import { cn } from "@/utils/cn";
 
-export default function FormModel({ id, firstName, lastName, email, department, onUpdate }) {
+export default function FormModel({ id, firstName, lastName, email, department, onUpdate, add, onAdd }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onUpdate(formData)
+    if (add) {
+      onAdd(formData)
+    } else {
+      onUpdate(formData)
+    }
     handleClose()
-    console.log("Form submitted");
   };
 
   const [formData, setFormData] = useState({
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    department: department,
+    firstName: add ? "" : firstName,
+    lastName: add ? "" : lastName,
+    email: add ? "" : email,
+    department: add ? "" : department,
   });
 
   const handleChange = (e) => {
@@ -47,8 +49,8 @@ export default function FormModel({ id, firstName, lastName, email, department, 
   return (
     <div>
       <Button onClick={handleOpen} color="secondary">
-        Edit →
-        </Button>
+        {add ? "Add" : "Edit →"}
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -86,7 +88,7 @@ export default function FormModel({ id, firstName, lastName, email, department, 
               className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900  block bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] "
               type="submit"
             >
-              Update &rarr;
+              {add ? "Add" : "Update"}
               <BottomGradient />
             </button>
 

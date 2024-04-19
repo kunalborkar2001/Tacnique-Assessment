@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
-import Link from "next/link";
 import FormModel from './FormModel'
-export function ThreeDCard({ id, firstName, lastName, email, department, removeElem }) {
+export function ThreeDCard({ id, firstName, lastName, email, department, removeElem, handleAdd }) {
 
   const [formData, setFormData] = useState({
     firstName: firstName,
@@ -22,21 +21,27 @@ export function ThreeDCard({ id, firstName, lastName, email, department, removeE
   }
 
 
+
+
   return (
     <CardContainer className="inter-var">
       <CardBody className=" relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-dark-1 border-white/[0.2]  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+
         <CardItem
           translateZ="50"
-          className="text-xl font-boldtext-white"
+          className="text-xl font-boldtext-white flex justify-between w-full"
         >
-          First Name : {formData.firstName}
+          <p>First Name : {formData.firstName}</p>
+          <p className=" px-2 border rounded-full">{id} </p>
         </CardItem>
+
         <CardItem
           translateZ="50"
           className="text-xl font-boldtext-white"
         >
           Last Name : {formData.lastName}
         </CardItem>
+
         <CardItem
           as="p"
           translateZ="60"
@@ -44,20 +49,30 @@ export function ThreeDCard({ id, firstName, lastName, email, department, removeE
         >
           Email : {formData.email}
         </CardItem>
+
         <CardItem translateZ="100" className="w-full mt-4">
           Department : {formData.department}
         </CardItem>
+
         <div className="flex justify-between items-center mt-20">
+
           <CardItem
             translateZ={20}
-            as={Link}
-            href="#/"
             target="__blank"
             className="px-4 py-2 rounded-xl text-xs font-normal text-white"
           >
-            <FormModel id={id} firstName={firstName} lastName={lastName} email={email} department={department} onUpdate={handleUpdate}  /> 
+            <FormModel
+              id={id}
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
+              department={department}
+              onUpdate={handleUpdate}
+              add={false}
+            />
 
           </CardItem>
+
           <CardItem
             translateZ={20}
             as="button"
@@ -66,7 +81,9 @@ export function ThreeDCard({ id, firstName, lastName, email, department, removeE
           >
             Delete
           </CardItem>
+
         </div>
+
       </CardBody>
 
     </CardContainer>

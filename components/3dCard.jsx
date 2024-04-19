@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState } from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import Link from "next/link";
@@ -57,7 +56,8 @@ export function ThreeDCard({ id, firstName, lastName, email, department }) {
             target="__blank"
             className="px-4 py-2 rounded-xl text-xs font-normal text-white"
           >
-            <FormModel /> 
+            <FormModel id={id} firstName={firstName} lastName={lastName} email={email} department={department} /> {/*  This is form model */}
+
           </CardItem>
           <CardItem
             translateZ={20}
@@ -68,7 +68,7 @@ export function ThreeDCard({ id, firstName, lastName, email, department }) {
           </CardItem>
         </div>
       </CardBody>
-      
+
     </CardContainer>
   );
 }

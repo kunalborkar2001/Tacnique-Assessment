@@ -13,6 +13,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.15",
+    "@radix-ui/react-label": "^2.0.2",
     "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "framer-motion": "^11.1.5",

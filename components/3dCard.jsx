@@ -35,7 +35,7 @@ export function ThreeDCard({ id, firstName, lastName, email, department, removeE
 
   return (
     <CardContainer className="inter-var">
-      <CardBody className=" relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-dark-1 border-white/[0.2]  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+      <CardBody className=" relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-dark-1 border-white/[0.2]  w-[100vw] sm:w-[30rem] h-auto rounded-xl p-6 border ">
 
         <CardItem
           translateZ="50"

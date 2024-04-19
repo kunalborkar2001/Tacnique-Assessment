@@ -24,8 +24,6 @@ export default function Home() {
         if (users.status == '200') {
           setFilteredData(users.data);
           setTotalPages(Math.ceil(users.data.length / itemsPerPage));
-          setShowSnackbar(true)
-          setShowSnackbarMessage("User Data Fetched Successfully")
         }
 
       } catch (error) {

@@ -66,12 +66,12 @@ export default function FormModel({ id, firstName, lastName, email, department, 
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
               <div className='d-flex mb-4 '>
                 <Label htmlFor="firstname">First name</Label>
-                <Input id="firstname" placeholder="Tyler" type="text" name='firstName' value={formData.firstName} onChange={handleChange} required/>
+                <Input id="firstname" placeholder="First name..." type="text" name='firstName' value={formData.firstName} onChange={handleChange} required/>
               </div>
 
               <div className='d-flex mb-4 '>
                 <Label htmlFor="lastname">Last name</Label>
-                <Input id="lastname" placeholder="Durden" type="text" name='lastName' value={formData.lastName} onChange={handleChange} required/>
+                <Input id="lastname" placeholder="Last name..." type="text" name='lastName' value={formData.lastName} onChange={handleChange} required/>
               </div>
             </div>
 

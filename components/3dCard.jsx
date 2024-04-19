@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import FormModel from './FormModel'
 import { patchUser } from "@/ApiCall/api";
+
+// ThreeDCard component function
 export function ThreeDCard({ id, firstName, lastName, email, department, removeElem, handleAdd }) {
 
+  // State to manage form data
   const [formData, setFormData] = useState({
     firstName: firstName,
     lastName: lastName,
@@ -13,6 +16,7 @@ export function ThreeDCard({ id, firstName, lastName, email, department, removeE
     department: department,
   })
 
+  // Function to handle updating user data
   const handleUpdate = async (updatedFormData) => {
     try {
       let response = await patchUser(updatedFormData, id)
@@ -26,13 +30,12 @@ export function ThreeDCard({ id, firstName, lastName, email, department, removeE
     }
   };
 
+  // Function to handle deleting user
   const handleDelete = () => {
     removeElem(id)
   }
 
-
-
-
+  // Rendering JSX for ThreeDCard component
   return (
     <CardContainer className="inter-var">
       <CardBody className=" relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-dark-1 border-white/[0.2]  w-[100vw] sm:w-[30rem] h-auto rounded-xl p-6 border ">
@@ -71,6 +74,7 @@ export function ThreeDCard({ id, firstName, lastName, email, department, removeE
             target="__blank"
             className="px-4 py-2 rounded-xl text-xs font-normal text-white"
           >
+            {/* Render FormModel component for editing user data */}
             <FormModel
               id={id}
               firstName={firstName}

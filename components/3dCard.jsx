@@ -1,27 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import Link from "next/link";
 import FormModel from './FormModel'
-export function ThreeDCard({ id, firstName, lastName, email, department }) {
+export function ThreeDCard({ id, firstName, lastName, email, department, removeElem }) {
 
   const [formData, setFormData] = useState({
     firstName: firstName,
     lastName: lastName,
     email: email,
-    department: department
+    department: department,
   })
 
+  const handleUpdate = (updatedFormData) => {
+    setFormData(updatedFormData);
+  };
 
-  const handleClick = () => {
-    setFormData({
-      firstName: "kunal",
-      lastName: "kunal",
-      email: "kunal",
-      department: "kunal"
-    })
+  const handleDelete = () => {
+    removeElem(id)
   }
+
 
   return (
     <CardContainer className="inter-var">
@@ -56,13 +55,14 @@ export function ThreeDCard({ id, firstName, lastName, email, department }) {
             target="__blank"
             className="px-4 py-2 rounded-xl text-xs font-normal text-white"
           >
-            <FormModel id={id} firstName={firstName} lastName={lastName} email={email} department={department} /> {/*  This is form model */}
+            <FormModel id={id} firstName={firstName} lastName={lastName} email={email} department={department} onUpdate={handleUpdate}  /> 
 
           </CardItem>
           <CardItem
             translateZ={20}
             as="button"
             className="px-4 py-2 rounded-xl  bg-white text-black  text-xs font-bold"
+            onClick={handleDelete}
           >
             Delete
           </CardItem>

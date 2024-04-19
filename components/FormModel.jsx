@@ -46,7 +46,9 @@ export default function FormModel({ id, firstName, lastName, email, department, 
 
   return (
     <div>
-      <Button onClick={handleOpen} className='text-white'>Edit →</Button>
+      <Button onClick={handleOpen} color="secondary">
+        Edit →
+        </Button>
       <Modal
         open={open}
         onClose={handleClose}

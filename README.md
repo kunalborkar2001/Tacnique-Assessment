@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# User Management Dashboard
 
-## Getting Started
+This is a simple web application developed with Next.js where users can view, add, edit, and delete user details from a mock backend API provided by JSONPlaceholder.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Introduction](#introduction)
+- [Requirements](#requirements)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Challenges and Improvements](#challenges-and-improvements)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Introduction
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is developed as a demonstration of a User Management Dashboard using Next.js. It interacts with the JSONPlaceholder API to fetch and manipulate user data.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Requirements
 
-## Learn More
+### User Interface:
+- Displayed a list of users with details such as ID, First Name, Last Name, Email, and Department.
+- Provided buttons or links to "Add", "Edit", and "Delete" users.
+- A form to input details of a new user or edit details of an existing user.
 
-To learn more about Next.js, take a look at the following resources:
+### Backend Interaction:
+- Used the JSONPlaceholder API, specifically the '/users' endpoint.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Functionality:
+- View: Displed all users by fetching data from the '/users' endpoint.
+- Add: Allowed adding a new user by posting to the '/users' endpoint.
+- Edit: Allowed editing an existing user.
+- Delete: Allowed users to be deleted by sending a delete request to the API.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Error Handling:
+- Handled scenarios where the API request might fail and show an error message to the user.
 
-## Deploy on Vercel
+### Bonus :
+- Implemented pagination or infinite scrolling for the user list.
+- Added client-side validation for the user input form.
+- Created the interface responsive.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js
+- React
+- Axios (for HTTP requests)
+- Tailwind CSS (for styling)
+- Typescript
+- Javascript
+
+## Installation
+
+1. Clone the repository: https://github.com/kunalborkar2001/Tacnique-Assessment
+
+
+2. Navigate into the project directory: cd /Tacnique-Assessment
+
+
+3. Install dependencies: npm install
+
+
+## Usage
+
+1. Run the development server: npm run dev
+
+
+2. Open your browser and visit http://localhost:3000 to view the application.
+
+## Challenges and Improvements
+
+During the development process, I faced challenges with handling and managing state in React components. However, through research and experimentation, I was able to overcome these challenges and implement the required functionality.
+
+If given more time, some improvements I would make include:
+
+- Enhancing the user interface to make it more user-friendly and visually appealing.
+- Optimizing the application for better performance, especially when dealing with a large number of users.
+- Adding unit tests to ensure the reliability and stability of the codebase.
+
+  

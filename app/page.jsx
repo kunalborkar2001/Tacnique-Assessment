@@ -1,17 +1,20 @@
 'use client'
 
+import * as React from 'react';
 import { ThreeDCard } from "@/components/3dCard";
 import { useEffect, useState } from "react";
 import { addUser, deleteUser, getAllUsers } from '../ApiCall/api';
 import Pagination from '@mui/material/Pagination';
 import Navbar from "../components/Navbar"
 
-
 export default function Home() {
   const [filteredData, setFilteredData] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+
   const itemsPerPage = 4; // Number of items per page
+
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +24,8 @@ export default function Home() {
         if (users.status == '200') {
           setFilteredData(users.data);
           setTotalPages(Math.ceil(users.data.length / itemsPerPage));
+          setShowSnackbar(true)
+          setShowSnackbarMessage("User Data Fetched Successfully")
         }
 
       } catch (error) {
@@ -38,7 +43,6 @@ export default function Home() {
       let response = await deleteUser(id)
 
       if (response.status == '200') {
-        alert(response.status)
         setFilteredData(filteredData.filter((elem) => elem.id !== id));
       }
     } catch (error) {
@@ -49,6 +53,7 @@ export default function Home() {
   const handleChangePage = (event, value) => {
     setPage(value);
   };
+
 
 
   const handleAdd = async (e) => {
@@ -91,11 +96,13 @@ export default function Home() {
 
   return (
     <>
+
       <Navbar handleAdd={handleAdd} />
 
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-2">
           {filteredData && currentPageData.map((elem) => (
+
             <ThreeDCard
               key={elem.id}
               id={elem.id}
@@ -109,6 +116,8 @@ export default function Home() {
           ))}
         </div>
 
+
+
         <Pagination
           count={totalPages}
           page={page}
@@ -117,9 +126,15 @@ export default function Home() {
           shape="rounded"
           size="large"
           color="primary"
-          style={{ color: "white" }}
+          sx={{
+            '& .MuiPaginationItem-page': {
+              color: 'white',
+            },
+          }}
         />
       </main>
+
+
     </>
   );
 }

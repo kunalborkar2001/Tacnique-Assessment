@@ -49,7 +49,7 @@ export default function FormModel({ id, firstName, lastName, email, department, 
   return (
     <div>
       <Button onClick={handleOpen} color="secondary">
-        {add ? "Add" : "Edit →"}
+        {add ? "Add new data" : "Edit →"}
       </Button>
       <Modal
         open={open}

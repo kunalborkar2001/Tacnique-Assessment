@@ -4,15 +4,25 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import Link from "next/link";
-
-export function ThreeDCard() {
+import FormModel from './FormModel'
+export function ThreeDCard({ id, firstName, lastName, email, department }) {
 
   const [formData, setFormData] = useState({
-    firstName: "Kunal",
-    lastName: "Borkar",
-    email: 'kunalborkar2001@gmail.com',
-    department: 'Multi-layered client-server neural-net'
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    department: department
   })
+
+
+  const handleClick = () => {
+    setFormData({
+      firstName: "kunal",
+      lastName: "kunal",
+      email: "kunal",
+      department: "kunal"
+    })
+  }
 
   return (
     <CardContainer className="inter-var">
@@ -43,11 +53,11 @@ export function ThreeDCard() {
           <CardItem
             translateZ={20}
             as={Link}
-            href="https://twitter.com/mannupaaji"
+            href="#/"
             target="__blank"
             className="px-4 py-2 rounded-xl text-xs font-normal text-white"
           >
-            Edit →
+            <FormModel /> 
           </CardItem>
           <CardItem
             translateZ={20}
@@ -58,6 +68,7 @@ export function ThreeDCard() {
           </CardItem>
         </div>
       </CardBody>
+      
     </CardContainer>
   );
 }

@@ -1,7 +1,7 @@
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
- 
+
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -18,6 +18,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        dark: {
+          1: '#1C1F2E',
+          2: '#161925',
+          3: '#252A41',
+          4: '#1E2757',
+        },
+      },
     },
     plugins: [addVariablesForColors],
   },
@@ -31,7 +39,7 @@ function addVariablesForColors({ addBase, theme }: any) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });

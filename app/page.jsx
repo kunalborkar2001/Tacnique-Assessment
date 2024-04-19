@@ -2,7 +2,7 @@
 
 import { ThreeDCard } from "@/components/3dCard";
 import { useEffect, useState } from "react";
-import { getAllUsers } from '../ApiCall/api';
+import { deleteUser, getAllUsers } from '../ApiCall/api';
 import Pagination from '@mui/material/Pagination';
 import Navbar from "../components/Navbar"
 
@@ -27,13 +27,25 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const handleDelete = (id) => {
-    setFilteredData(filteredData.filter((elem) => elem.id !== id));
+
+
+  const handleDelete = async(id) => {
+    try {
+      let response = await deleteUser(id)
+
+      if(response.status == '200') {
+        alert(response.status)
+        setFilteredData(filteredData.filter((elem) => elem.id !== id));
+      }
+    } catch (error) {
+      
+    }
   };
 
   const handleChangePage = (event, value) => {
     setPage(value);
   };
+
 
   const handleAdd = (e) => {
 
@@ -53,7 +65,6 @@ export default function Home() {
 
     // Update the filtered data array by adding the new user to the beginning
     setFilteredData([addData, ...filteredData]);
-    console.log("filteredData :", filteredData);
   }
 
 

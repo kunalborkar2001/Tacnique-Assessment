@@ -17,8 +17,12 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const users = await getAllUsers();
-        setFilteredData(users.data);
-        setTotalPages(Math.ceil(users.data.length / itemsPerPage));
+
+        if (users.status == '200') {
+          setFilteredData(users.data);
+          setTotalPages(Math.ceil(users.data.length / itemsPerPage));
+        }
+
       } catch (error) {
         console.error("Error fetching users:", error);
       }
@@ -68,7 +72,7 @@ export default function Home() {
       let response = await addUser(addData)
 
       if (response.status == '201') {
-        
+
         setFilteredData([addData, ...filteredData]);
       }
 

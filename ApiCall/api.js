@@ -45,6 +45,7 @@ let deleteUser = async (id) => {
     }
 }
 
+
 let patchUser = async (formData) => {
     try {
         let response = await axios.patch(`${BASE_URL}/users/`, formData, {
